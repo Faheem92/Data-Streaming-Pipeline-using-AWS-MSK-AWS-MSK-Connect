@@ -22,32 +22,8 @@ It acts as a **reference architecture** for building scalable, serverless, manag
 ##  2. High-Level Architecture
 
 ```
-                ┌─────────────────────────────┐
-                │     Amazon RDS (SQL Server) │
-                │   CDC Enabled Tables         │
-                └───────────────┬─────────────┘
-                                │ CDC Events
-                                ▼
-                    ┌──────────────────────┐
-                    │ Debezium SQL Server  │
-                    │  Source Connector    │
-                    └─────────┬────────────┘
-                              │ Publishes
-                              ▼
-                    ┌──────────────────────┐
-                    │   Amazon MSK (Kafka) │
-                    │  IAM Authentication  │
-                    └─────────┬────────────┘
-                              │ Consumes
-                              ▼
-                    ┌──────────────────────┐
-                    │   S3 Sink Connector  │
-                    └─────────┬────────────┘
-                              │ Writes
-                              ▼
-                    ┌──────────────────────┐
-                    │ Amazon S3 (JSON Data)│
-                    └──────────────────────┘
+<img width="2000" height="1600" alt="aws_msk_cdc_pipeline" src="https://github.com/user-attachments/assets/7db0edfe-25ca-477c-a483-8c5316d13a19" />
+
 ```
 
 AWS Services Used:
